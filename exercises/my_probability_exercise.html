@@ -8,46 +8,46 @@
 <body>
     <div class="exercise">
     <div class="problems">
-        <div id="marbles">
+        <div id="fantasy">
             <div class="vars">
-                <var id="CONTAINER">randFromArray(["moar", "forest", "kingdom", "village"])</var>
-                <var id="MARBLE">randFromArray(["goat", "dragon", "merperson", "sphinx"])</var>
-                <var id="REDMAR">randRange(3, 11)</var>
-                <var id="GREENMAR">randRange(3, 11)</var>
-                <var id="BLUEMAR">randRange(3, 11)</var>
-                <var id="TOTAL">REDMAR + GREENMAR + BLUEMAR</var>
+                <var id="SCENE">randFromArray(["moar", "forest", "kingdom", "village"])</var>
+                <var id="CREATURES">randFromArray(["goat", "dragon", "merperson", "sphinx"])</var>
+                <var id="FLUFFY">randRange(3, 11)</var>
+                <var id="CUTE">randRange(3, 11)</var>
+                <var id="PURPLE">randRange(3, 11)</var>
+                <var id="TOTAL">FLUFFY + CUTE + PURPLE</var>
 
                 <var id="NOT">rand(2) === 0</var>
-                <var id="CHOSEN_COLOR, CHOSEN_NUMBER">randFromArray([["fluffy", REDMAR], ["cute", GREENMAR], ["purple", BLUEMAR]])</var>
+                <var id="CHOSEN_TYPE, CHOSEN_NUMBER">randFromArray([["fluffy", FLUFFY], ["cute", CUTE], ["purple", PURPLE]])</var>
                 <var id="NUMBER">NOT ? TOTAL - CHOSEN_NUMBER : CHOSEN_NUMBER</var>
             </div>
 
             <div class="question">
-                <p>A <var>CONTAINER</var> contains <code><var>REDMAR</var></code> fluffy <var>MARBLE</var>s,
-                <code><var>GREENMAR</var></code> cute <var>MARBLE</var>s, and <code><var>BLUEMAR</var></code> purple <var>MARBLE</var>s.</p>
+                <p>A <var>SCENE</var> contains <code><var>FLUFFY</var></code> fluffy <var>CREATURES</var>s,
+                <code><var>CUTE</var></code> cute <var>CREATURES</var>s, and <code><var>PURPLE</var></code> purple <var>CREATURES</var>s.</p>
 
-                <p>If a <var>MARBLE</var> is randomly chosen, what is the probability
-                that it is <em data-if="NOT">not</em> <var>CHOSEN_COLOR</var>?</p>
+                <p>If a <var>CREATURES</var> is randomly chosen, what is the probability
+                that it is <em data-if="NOT">not</em> <var>CHOSEN_TYPE</var>?</p>
             </div>
 
             <div class="solution"><var>NUMBER / TOTAL</var></div>
             <div class="hints">
-                <p>There are <code><var>REDMAR</var> + <var>GREENMAR</var> + <var>BLUEMAR</var> = <var>TOTAL</var></code> <var>MARBLE</var>s in the <var>CONTAINER</var>.</p>
-                <p>There are <code><var>CHOSEN_NUMBER</var></code> <var>CHOSEN_COLOR</var> <var>MARBLE</var>s.
-                <span data-if="NOT">That means <code><var>TOTAL</var> - <var>CHOSEN_NUMBER</var> = <var>NUMBER</var></code> are <em>not</em> <var>CHOSEN_COLOR</var>.</span></p>
+                <p>There are <code><var>FLUFFY</var> + <var>CUTE</var> + <var>PURPLE</var> = <var>TOTAL</var></code> <var>CREATURES</var>s in the <var>SCENE</var>.</p>
+                <p>There are <code><var>CHOSEN_NUMBER</var></code> <var>CHOSEN_TYPE</var> <var>CREATURES</var>s.
+                <span data-if="NOT">That means <code><var>TOTAL</var> - <var>CHOSEN_NUMBER</var> = <var>NUMBER</var></code> are <em>not</em> <var>CHOSEN_TYPE</var>.</span></p>
                 <p>The probability is <code>\displaystyle <var>fractionSimplification(NUMBER, TOTAL)</var></code>.</p>
             </div>
         </div>
 
-        <div id="die">
+        <div id="hydra">
             <div class="vars">
                 <var id="RESULT_DESC, RESULT_POSSIBLE">randFromArray([
-                    ["a 1", [1]],
-                    ["a 2", [2]],
-                    ["a 3", [3]],
-                    ["a 4", [4]],
-                    ["a 5", [5]],
-                    ["a 6", [6]],
+                    ["1", [1]],
+                    ["2", [2]],
+                    ["3", [3]],
+                    ["4", [4]],
+                    ["5", [5]],
+                    ["6", [6]],
                     ["at least 2", [2, 3, 4, 5, 6]],
                     ["at least 3", [3, 4, 5, 6]],
                     ["at least 4", [4, 5, 6]],
@@ -57,24 +57,24 @@
                     ["less than 4", [1, 2, 3]],
                     ["less than 5", [1, 2, 3, 4]],
                     ["less than 6", [1, 2, 3, 4, 5]],
-                    ["even", [2, 4, 6]],
-                    ["even", [2, 4, 6]],
-                    ["odd", [1, 3, 5]],
-                    ["odd", [1, 3, 5]],
-                    ["prime", [2, 3, 5]]
+                    ["an even number of", [2, 4, 6]],
+                    ["an even number of", [2, 4, 6]],
+                    ["an odd number of", [1, 3, 5]],
+                    ["an odd number of", [1, 3, 5]],
+                    ["a prime number of", [2, 3, 5]]
                 ])</var>
                 <var id="RESULT_COUNT">RESULT_POSSIBLE.length</var>
             </div>
 
             <div class="question">
-                <p>A fair six-sided die is rolled. What is the probability that the
-                result is <var>RESULT_DESC</var>?</p>
+                <p>There are 6 hydra (mythological creatures with multiple heads). The first one has one head, the second two, the third three heads, and so on. What is the probability that the
+                hydra has <var>RESULT_DESC</var> heads?</p>
             </div>
 
             <div class="solution"><var>RESULT_COUNT / 6</var></div>
 
             <div class="hints">
-                <p>When rolling a die, there are <code>6</code> possibilities: 1, 2, 3, 4, 5, and 6.</p>
+                <p>Among the six hydra, there are <code>6</code> possibilities of number of heads: 1, 2, 3, 4, 5, and 6.</p>
                 <p data-if="RESULT_COUNT === 1">In this case, only <code>1</code> result is favorable: the number <var>RESULT_POSSIBLE[0]</var>.</p>
                 <p data-else="">In this case, <code><var>RESULT_COUNT</var></code> results are favorable: <var>toSentence(RESULT_POSSIBLE)</var>.</p>
                 <p>The probability is <code>\displaystyle <var>fractionSimplification(RESULT_COUNT, 6)</var></code>.</p>
